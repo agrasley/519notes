@@ -1,0 +1,27 @@
+0. Best case time complexity is O(n log n), which occurs when each pivot selected
+exactly splits the list in half. The halving means that the number of iterations
+of the sort is log n, while each iteration takes n time to complete.
+
+Worst case time complexity is O(n**2), which occurs when every element in
+the list is to one side of the pivot. This means that the halving feature is no
+longer present and the number of iterations becomes n.
+
+Average case time complexity is O(n log n), although slightly slower than best case
+O(n log n). This results from the pivot not perfectly halving the list.
+
+1. Best case and average case time complexity is O(n). Each iteration the work performed is on avg
+half of the previous iteration. This converges to 2n, so the complexity is linear.
+
+Worst case time complexity is O(n**2), which occurs when all the elements consistently
+wind up on one side of the pivot.
+
+2. The complexity of sorted is O(n log n). Both insert and search are binary search tree
+based algorithms and therefore have an avg complexity of O(log n).
+
+Debriefing
+
+1. I spent about 1.5 hrs on this assignment.
+2. I would rate the assignment as easy-moderate.
+3. I worked on it by myself.
+4. 80%
+5. Complexity analysis is still a bit difficult for me.
