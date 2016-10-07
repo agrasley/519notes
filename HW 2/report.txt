@@ -1,0 +1,6 @@
+0. Stable algorithms: mergesort, quicksort with first element as pivot, insertion sort
+
+1. 1.5-2 hours
+2. Moderate
+3. Mostly alone
+4. 90%

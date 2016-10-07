@@ -4,8 +4,9 @@ def sort(a):
     else:
         pivot = a[0]
         left = [x for x in a if x < pivot]
-        right = [x for x in a[1:] if x >= pivot] # have to exclude pivot so a[1:]
+        right = [x for x in a[1:] if x >= pivot]  # have to exclude pivot-a[1:]
         return [sort(left)] + [pivot] + [sort(right)]
+
 
 def sorted(a):
     if a == []:
@@ -14,6 +15,7 @@ def sorted(a):
         left, center, right = a
         return sorted(left) + [center] + sorted(right)
 
+
 def search(t, x):
     res = _search(t, x)
     if res == []:
@@ -21,10 +23,12 @@ def search(t, x):
     else:
         return True
 
+
 def insert(t, x):
     res = _search(t, x)
     if res == []:
         res.extend([[], x, []])
+
 
 def _search(t, x):
     if t == []:
