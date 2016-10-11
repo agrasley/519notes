@@ -1,0 +1,11 @@
+3. The ksmallest algorithm's complexity can be broken down into two pieces. First,
+there is always what is essentially a heapsort performed on k elements, giving
+a complexity of O(k log k). Second, the remaining n - k elements are processed in
+best-case O(n - k) and worst case O((n - k)log(k)). The best case scenario
+comes when the first k elements of the input are already the k smallest elements,
+giving a total algorithmic complexity of O(k log k + n - k). This is because each
+operation is an O(1) comparison, yielding O(n - k) total comparisons. The worst
+case scenario comes in the case where the list is reverse sorted, yielding O((n - k)log(k))
+complexity. This is because each element must be bubbled down, which has O(log k)
+complexity for a heap of k elements. This yields a total worst case complexity of
+O(k log k + (n - k)log k) which simplifies to O(n log k).
