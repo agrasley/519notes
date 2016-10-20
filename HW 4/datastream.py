@@ -1,18 +1,22 @@
+from heapq import heapify, heapreplace
+
+
 def _sort_heap(h, length):
     if length == 1:
+        h[0] = -h[0]
         return h
     else:
         x = h[0]
         h[0] = h[length - 1]
-        h[length - 1] = x
+        h[length - 1] = -x
         _bubble_down(h, 0, length - 1)
         return _sort_heap(h, length - 1)
 
 
 def _bubble_down(h, i, length):
     if length > 2*i+1:
-        if 2*i+2 >= length or h[2*i+1] >= h[2*i+2]:
-            if h[i] < h[2*i+1]:
+        if 2*i+2 >= length or h[2*i+1] <= h[2*i+2]:
+            if h[i] > h[2*i+1]:
                 x = h[i]
                 h[i] = h[2*i+1]
                 h[2*i+1] = x
@@ -20,7 +24,7 @@ def _bubble_down(h, i, length):
             else:
                 return
         else:
-            if h[i] < h[2*i+2]:
+            if h[i] > h[2*i+2]:
                 x = h[i]
                 h[i] = h[2*i+2]
                 h[2*i+2] = x
@@ -32,33 +36,24 @@ def _bubble_down(h, i, length):
 
 
 def _modify_heap(h, x):
-    if x >= h[0]:
+    if x <= h[0]:
         return
     else:
-        h[0] = x
-        _bubble_down(h, 0, len(h))
-
-
-def _build_max_heap(a):
-    i = len(a)/2 - 1
-    while i >= 0:
-        _bubble_down(a, i, len(a))
-        i -= 1
-    return a
+        heapreplace(h, x)
 
 
 def ksmallest(k, l):
     if k > len(l):
         return None
     else:
-        preheap = []
+        heap = []
         i = 0
         while i < k:
-            preheap.append(l[i])
+            heap.append(-l[i])
             i += 1
-        heap = _build_max_heap(preheap)
+        heapify(heap)
         while i < len(l):
-            _modify_heap(heap, l[i])
+            _modify_heap(heap, -l[i])
             i += 1
         return _sort_heap(heap, k)
 

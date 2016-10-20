@@ -1,3 +1,30 @@
+0.
+a. Inserting an element into a heap has a worst case complexity of O(log n) in the
+case where the inserted element must bubble up to the root of the heap. This gives
+a worst case complexity of O(n log n) to insert n elements. By contrast, heapify
+performs no work for half of its elements on the bottom level of the heap. The next
+level only performs O(1) work (a quarter of all elements), the subsequent level O(2) work
+(an eigth of all elements). The only element that actually performs O(log n) work is the
+root element itself. This gives us the sum 0 * n/2 + 1 * n/4 + 2 * n/8 + ... + log n,
+which converges to O(n).
+b. On average for a 10000 element list of random numbers, heapify runs about 0.003
+seconds faster than insertion. For sorted input, heapify runs about 0.002 seconds
+slower than insertion. For reverse sorted input, heapify runs 0.04 seconds faster.
+1. nbesta's complexity is sorting the cartesian product. Since the cartesian product
+has n**2 elements, the time complexity is O(n**2 log n**2), which simplifies to
+O(n**2 log n). nbestb's complexity is quickselect on the cartesian product. This
+gives us O(n**2) complexity. nbestc's complexity avoids the need to enumerate the
+cartesian product. Instead, nbestc only needs to perform at most 3 heap push/pop
+operations k times. Each iteration, this results in a complexity of O(2 log k + log k - 1),
+which simplifies to log k, giving us a total complexity of O(k log k).
+2. The complexity of k-way mergesort is O(n log n). Each time you split an input,
+you heapify 1 heap of size k (O(k)). Then you perform n heap push/pop operations (O(log k)).
+This means each time you merge you incur a complexity of O(k + n log k). The number of
+merge operations at each level is k times the previous level, and there are logk n
+levels in total. At each layer, the right half of the sum is (n/k log k) * k = n log k.
+n log k * logk n gives us a complexity for the right half of the sum of O(n log n).
+The left half is the result of the summation k + k**2 + k**3 + ... + k**logk n, which
+converges to n. This gives us a final complexity of O(n + n log n) = O(n log n).
 3. The ksmallest algorithm's complexity can be broken down into two pieces. First,
 there is always what is essentially a heapsort performed on k elements, giving
 a complexity of O(k log k). Second, the remaining n - k elements are processed in
@@ -9,3 +36,10 @@ case scenario comes in the case where the list is reverse sorted, yielding O((n 
 complexity. This is because each element must be bubbled down, which has O(log k)
 complexity for a heap of k elements. This yields a total worst case complexity of
 O(k log k + (n - k)log k) which simplifies to O(n log k).
+
+1. 5 hours.
+2. Moderate.
+3. Mostly alone. I did see the TA and discuss some problems with my classmates.
+4. 85%.
+5. I like the coding assignments we're given. They're fun and challenging.
+6. Sometimes I don't know what I should study for the quizzes.
