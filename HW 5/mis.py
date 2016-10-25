@@ -17,25 +17,44 @@ def max_wis(a):
     @memoize
     def helper(length):
         if length < 1:
-            return (0, [])
+            return 0
         else:
             x = helper(length-2)
-            x1 = x[1][:]
-            x1.append(a[length-1])
             y = helper(length-1)
-            return max((a[length-1] + x[0], x1), x, y)
+            return max(a[length-1] + x, x, y)
 
-    return helper(len(a))
+    result = helper(len(a))
+
+    path = []
+    i = len(a)
+    while i > 0:
+        if helper(i - 1) > helper(i - 2) + a[i-1]:
+            i -= 1
+        else:
+            path.append(a[i-1])
+            i -= 2
+
+    path.reverse()
+    return result, path
 
 
 def max_wis2(a):
-    x = y = z = (0, [])
-    for item in a:
-        new_y = z
-        new_x = max(y, x)
-        if item < 0:
-            new_z = new_x
+    results = [0, 0]
+    i = 2
+    while i < len(a) + 2:
+        x = results[i-2]
+        y = results[i-1]
+        results.append(max(x + a[i-2], x, y))
+        i += 1
+
+    path = []
+    i = len(results)
+    while i-2 > 0:
+        if results[i-2] > results[i-3] + a[i-3]:
+            i -= 1
         else:
-            new_z = (new_x[0]+item, new_x[1] + [item])
-        x, y, z = new_x, new_y, new_z
-    return max(y, z)
+            path.append(a[i-3])
+            i -= 2
+
+    path.reverse()
+    return results[-1], path

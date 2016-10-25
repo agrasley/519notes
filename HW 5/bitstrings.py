@@ -12,14 +12,20 @@ def memoize(f):
     return wrapper
 
 
-@memoize
 def num_no(n):
-    if n == 1:
-        return 2
-    elif n == 2:
-        return 3
-    else:
-        return num_no(n-1) + num_no(n-2)
+
+    @memoize
+    def nn(n):
+        if n == 0:
+            return 1
+        elif n == 1:
+            return 2
+        elif n == 2:
+            return 3
+        else:
+            return nn(n-1) + nn(n-2)
+
+    return nn(n)
 
 
 def num_yes(n):

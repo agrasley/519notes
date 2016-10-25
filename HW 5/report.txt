@@ -1,0 +1,26 @@
+0. a. The theoretical complexity of the fibonacci sequence is the fibonacci sequence
+itself. That is, for the nth fibonacci number, the number of non-trivial recursive
+calls is fib(n+1)-1. The complexity is therefore O(fib(n+1)).
+b. a is approximately 1.6.
+c. This value matches the theoretical complexity because the limit of the fibonacci
+series as it approaches infinity is the golden ratio (1+sqrt(5))/2 or 1.618, taken to
+the nth power.
+1. The complexity of both implementations of max_wis is O(n). First, we need to
+determine the maximum sum for every subset in the input. In the recursive top-down
+model, this process is O(n) because we save the results for each subset in our
+memoization cache, therefore only needing to calculate the sum n times. Similarly,
+in the bottom-up implementation we calculate each sum once based on the previously
+computed sums. Next, we need to reconstruct our path, which in both implementations
+is a linear backtracking operation (O(n)). Finally, we need to reverse our paths,
+which is similarly O(n).
+2. This problem requires encoding the catalan series of numbers. For each level,
+you require O(n) work to compute the level. Because of memoization, each level is
+only computed once, so our final complexity is O(n**2).
+
+0. Alex Grasley
+1. 4
+2. Easy
+3. Mostly alone, with some input from classmates.
+4. 95%
+5. I think the homework has been really helpful in understanding the concepts explained.
+6. I feel like complexity analysis still isn't very intuitive for me.

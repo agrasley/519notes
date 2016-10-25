@@ -12,19 +12,23 @@ def memoize(f):
     return wrapper
 
 
-@memoize
 def bsts(n):
-    if n == 0:
-        return 1
-    else:
-        i = 0
-        total = 0
-        while i < n/2:
-            total += 2 * bsts(i) * bsts(n - 1 - i)
-            i += 1
-        if n % 2 == 1:
-            total += bsts(i) * bsts(n - 1 - i)
-        return total
+
+    @memoize
+    def b(n):
+        if n == 0:
+            return 1
+        else:
+            i = 0
+            total = 0
+            while i < n/2:
+                total += 2 * b(i) * b(n - 1 - i)
+                i += 1
+            if n % 2 == 1:
+                total += b(i) * b(n - 1 - i)
+            return total
+
+    return b(n)
 
 
 if __name__ == '__main__':
