@@ -1,0 +1,46 @@
+0.
+  a.
+    i.  For the unbounded knapsack problem, the exhaustive solution requires enumerating
+        every possible knapsack configuration and checking its total value. Essentially,
+        for each item we can choose whether the item is in the bag or out of the bag.
+        This binary choice then branches to all other binary choices we perform next.
+        Therefore, our complexity is O(2**n).
+    ii. For the bounded knapsack problem, the exhaustive solution also requires enumerating
+        all possible knapsacks to find their total values, again giving O(2**n) complexity.
+  b.
+    i.  For an unbounded knapsack, the greedy solution is to find the object with
+        the greatest value to weight ratio and to insert as many of such objects as
+        will fit in the remaining space in the knapsack. This process is repeated
+        with the next greatest value to weight ratio to fill the remaining space, and
+        so forth. Therefore, the complexity of this approach is O(n).
+    ii. The bounded greedy solution is essentially the same as the above, with the
+        exception that you also must respect the upper bound on the number of objects
+        that you must insert. The complexity is still O(n).
+  c.
+    i.  The inputs 18, [(6,6), (7,8)] show that the greedy algorithm will choose
+        two of the 7-weight items for a total of 16, when the optimal solution is
+        to choose 3 of the 6-weight items for a total of 18.
+    ii. The same can be shown for the inputs 18, [(6,6,4), (7,8,3)].
+  d.
+    i.  For the unbounded knapsack, the top-down solution is more efficient because
+        it only computes the values that are strictly necessary, while the bottom-up
+        solution may compute values that are never needed by the final result.
+    ii. For the bounded knapsack, the bottom-up solution is more efficient because
+        it allows for an algorithm that runs in O(Wn) time rather than O(Wn * max(ui))
+        time.
+  e.
+    i.  Didn't have time to write the bottom-up UKP.
+    ii. Top-down bounded knapsack for a weight of 1000 and large bounds runs about
+        40 times slower than the bottom-up version.
+
+1. Unbounded knapsack--time complexity: O(Wn) space complexity O(Wn)
+2. Bounded knapsack--time complexity: O(Wn) space complexity O(Wn)
+
+0. Alex Grasley
+1. About 8.
+2. Difficult
+3. Mostly alone.
+4. 75%.
+5. I like trying to come up with more elegant ways of expressing the same solution
+   through refactoring.
+6. I'm still not quite able to reason about complexities without looking them up.
