@@ -1,0 +1,16 @@
+1.
+  a. Time—O(k log k + n log (n+k)); Space—O(n+k)
+  b.
+    i.  To create the initial heap use heapify. Time—O(k + n log (n+k)); Space—O(n+k)
+    ii. k - n candidates will be ignored/unused. Use quickselect to find n smallest
+    pairs, then ignore all other pairs. Time—O(k + n log n); Space—O(n)
+2.  Space: O(X) Time: O(nX)
+
+0. Alex Grasley
+1. 2.5 hours
+2. Moderate
+3. Mostly alone
+4. 80%
+5. I wish I had more time on the midterm. It was overwhelming to have so much to
+do in so little time.
+6. Yes.

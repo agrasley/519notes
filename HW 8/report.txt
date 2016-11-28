@@ -1,0 +1,24 @@
+0.
+  a. A greedy algorithm for LIS could find the largest value in the list and then
+     recursively search the sequence preceding that value. Of course, this fails
+     if the largest value is at the front of the list, e.g. [4, 1, 2, 3].
+  b. For TSP the exhaustive solution travels through every possible permutation
+     of vertices in the graph. Since this is a permutation, the complexity is
+     O(n!).
+1. Time—O(n**2); Space—O(n)
+2.
+  a. Subproblem—given a starting city c0, a set of cities remaining to visit S,
+     and a destination city c1 that is an element of S, what is the optimal minimum
+     path to get from c0 to c1 that passes through each city in S?
+  b. Recurrence—If S == {c1} and c1 and c0 are adjacent, return the distance d[c0][c1].
+     Otherwise, return the minimum of the candidate set created by picking a c2
+     that is adjacent to c1 and an element of S and calculating opt[S-{c1}][c2] + d[c1][c2].
+  c. Time—O(2**n * n**2); Space—O(2**n * n)
+
+0. Alex Grasley
+1. 3
+2. Moderate
+3. Mostly alone
+4. 90%
+5. I think the homework problems help me to understand what we go over in class.
+6. The content that we're tested on doesn't always match well with the homework.
