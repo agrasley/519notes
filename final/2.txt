@@ -1,0 +1,3 @@
+Use a hashed heap (like heapdict) to keep track of the position of each item in
+a priority queue implemented as a binary heap. Use the hashed heap to find item i.
+Using new priority p, bubble up i until the priority of the parent of i is <= p.

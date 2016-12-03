@@ -1,0 +1,5 @@
+a. Facebook—sparse, undirected
+b. Twitter—denser than FB, directed
+c. Family—sparse, undirected
+d. Airline map—sparse, directed
+e. Mesh—dense, undirected

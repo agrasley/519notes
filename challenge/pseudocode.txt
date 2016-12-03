@@ -1,0 +1,23 @@
+results <- new table  # initialize an empty results table
+place <- new table  # initialize an empty table to save your place
+
+procedure ITERATE(genArgs, n)
+    if (genArgs, results) in results then
+        return results[genArgs, n]  # if the result is already computed, return it
+    if genArgs in place then
+        gen, counter <- place[genArgs]  # if the generator already exists, but hasn't reached n, get the generator and its saved place
+    else
+        gen <- new generator(genArgs)  # get a new generator object corresponding to the genArgs
+        counter <- 0  # initialize the counter for the new generator to 0
+    while counter is not STOP and cntr <= n do  # keep iterating through the generator until you reach n or exhaust the generator
+        result <- GET-NEXT(gen)  # get the next value from the generator
+        if result exists then
+            results[genArgs, counter] <- result  # save the result in the results table
+            counter += 1
+        else
+            counter <- STOP  # generator exhausted
+    place[genArgs] <- (gen, counter)  # store the generator and the index of where it left off
+    if counter is STOP then
+        return NONE
+    else
+        return results[genArgs, counter]

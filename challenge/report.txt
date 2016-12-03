@@ -1,0 +1,38 @@
+1.
+  a. Time complexity—O(n**3)
+  b. Space complexity—O(n**2)
+  c. Description—Base case: if the sequence has <2 nucleotides, there are no pairs
+     and the result is 0. Otherwise take the maximum of two possible cases: (1)
+     i and j-1 form a pair, add 1 to opt[i+1, j-1], (2) split the sequence for
+     any k such that i<k<j, add opt[i, k] and opt[k, j].
+2.
+  a. Time complexity—O(n**3)
+  b. Space complexity—O(n**2)
+  c. Description—Base case: if the sequence has <2 nucleotides, there are no pairs
+     and there is only one way to organize it, giving a result of 1. Otherwise
+     sum the results from two possible cases: (1) for any k
+     such that i<k<j, if sequence[i] and sequence[k] form a valid pair, add the product
+     of opt[i+1, k] and opt[k+1, j] to the total sum, (2) assume sequence[i] is
+     unpaired, add opt[i+1, j] to the total sum.
+3.
+  a. Time complexity—O(|E|+nklogk) where E is the number of hyperarcs
+  b. Space complexity—O(kn**2)
+  c. Description—Base case: if the sequence has <2 nucleotides, there are no pairs
+     and the result is 0. Otherwise, initialize an empty list and an empty set of
+     elements already pushed onto the heap. Following problem 2 above, append to the list either
+     the result of opt[i+1, k] + opt[k+1, j] + 1 for any k such that i<k<j and sequence[i]
+     and sequence[k] form a valid pair, or opt[i+1, j]. Use quickselect to prune
+     the resulting list to the k best candidates. Heapify the remaining elements
+     of the list. In a lazy list, yield the best candidate from the heap, while
+     pushing successor candidates. In the case of splitting for a pair formed by
+     i and k, try to push the next best results for opt[i+1, k] and opt[k+1, j] if
+     they haven't already been pushed. Otherwise, push the next best result for
+     opt[i+1, j].
+
+0. Alex Grasley
+1. 6 hours?
+2. Difficult
+3. Mostly alone
+4. 95%
+5. I thought this problem was fun
+6. Tests and quizzes

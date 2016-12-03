@@ -1,0 +1,16 @@
+2.
+  a. Amortized O(1)
+  c. Amortized O(1)
+  e. Amortized O(1)
+4. Step 1: Sort the input list O(n log n). Step 2: Use two pointers starting at
+   the ends of the sorted input list. If the two pointers are pointing at numbers
+   with the same sign (two positive or two negative), halt search. For pointers
+   i and j, if i+j > 0, move pointer j one space to the left. If i+j < 0, move
+   pointer i to the right. If i+j == 0, save the pair and move both pointers towards
+   each other. O(n).
+   Time complexity: O(n log n + n)
+   This method would not work without modification for x + 2y = 0. This is because
+   you cannot know whether to multiply the first or second pointer by 2. You would
+   have to make two passes over the list: one that multiplies the value of pointer i by 2, and
+   another that multiplies the values of pointer j by 2.
+5. Best case complexity: O(log n).

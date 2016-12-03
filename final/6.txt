@@ -1,0 +1,1 @@
+Yes. A DAG is just a normal graph without cycles.

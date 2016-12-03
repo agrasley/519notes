@@ -1,0 +1,5 @@
+http://stackoverflow.com/questions/21065855/the-big-o-on-the-dijkstra-fibonacci-heap-solution
+a. O((|E| + |V|) log |V|) or O(|E| log |V| + |V| log |V|)
+b. O(|E| + |V|**2) = O(|V|**2)
+c. O(|E||V| + |V|)
+d. O(|E| + |V| log |V|)
